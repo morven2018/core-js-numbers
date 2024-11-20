@@ -610,7 +610,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return a / Math.sin(Math.atan(a / b));
+  return Math.hypot(a, b);
 }
 
 /**
@@ -627,11 +627,9 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  let n = number;
-  if (number > 0) {
-    n = -n;
-  }
-  return n % 2 === 0 ? n / 2 : Math.ceil(n / 2);
+  return number % 2 === 0
+    ? Math.abs(number) / 2
+    : Math.ceil(Math.abs(number) / 2);
 }
 
 module.exports = {
